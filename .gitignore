@@ -2,7 +2,7 @@
 **/__pycache__/*
 *.pyc
 scripts/scraping/result
-scripts/scraping/scopus_search.txt
+scripts/scopus_search.txt
 logs/*
 .vscode
-scripts/visualizing/data/scopusToCSV_FromScarping.csv
+scripts/visualizing/data/scopusToCSV_FromScraping.csv
