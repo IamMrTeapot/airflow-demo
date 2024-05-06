@@ -1,0 +1,6 @@
+!*.json
+**/__pycache__/*
+*.pyc
+scripts/scraping/result
+scripts/scraping/scopus_search.txt
+logs/*
