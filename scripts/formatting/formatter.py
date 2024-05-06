@@ -41,14 +41,14 @@ def read_and_append(file_name):
     surname = ""
     if "ce:surname" in df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"] :
         surname = df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"]["ce:surname"]
-    elif "ce:surname" in df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"][0]["preferred-name"] :
-        surname = df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"][0]["preferred-name"]["ce:surname"]
+    elif "ce:surname" in df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"]["preferred-name"] :
+        surname = df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"]["preferred-name"]["ce:surname"]
     
     given_name = ""
     if "ce:given-name" in df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"] :
         given_name = df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"]["ce:given-name"]
-    elif "ce:given-name" in df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"][0]["preferred-name"] :
-        given_name = df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"][0]["preferred-name"]["ce:given-name"]
+    elif "ce:given-name" in df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"]["preferred-name"] :
+        given_name = df["abstracts-retrieval-response"]["coredata"]["dc:creator"]["author"]["preferred-name"]["ce:given-name"]
 
     affiliation  = []
     for i, item in enumerate(df["abstracts-retrieval-response"]["affiliation"]):
@@ -76,8 +76,8 @@ def list_files(directory):
         read_and_append(directory + "/" + file)
 
 
-scrape_directory = "../scraping/result"
-target_file = "../visualizing/data/scopusToCSV_FromScraping.csv"
+scrape_directory = "/opt/airflow/scripts/scraping/result"
+target_file = "/opt/airflow/scripts/visualizing/data/scopusToCSV_FromScraping.csv"
 
 list_files(scrape_directory)
 new_df.to_csv(target_file, index=False)

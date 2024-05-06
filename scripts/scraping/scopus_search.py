@@ -23,10 +23,15 @@ def scrape(url):
             return i["@href"]
     return None
 
+limit = 3
+
 while(url):
+    limit -= 1
+    if(limit == 0):
+        break
     url = scrape(url)
     # save result to file and reset result
-    with open("scopus_search.txt", "a") as f:
+    with open("/opt/airflow/scripts/scopus_search.txt", "a") as f:
         for i in result:
             f.write(i + "\n")
     result = []
